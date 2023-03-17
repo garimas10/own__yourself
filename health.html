@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/pageTrans.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Merriweather:wght@700&family=Sacramento&display=swap"
+    rel="stylesheet" />
+  <title>Health</title>
+  <!-- <style>
+      .div1 {
+        width: 800px;
+        height: 100px;
+        padding: 20px;
+      }
+    </style> -->
+</head>
+
+<body>
+  <div class="transition-container from-left">
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+  </div>
+
+  <div class="transition-container from-top">
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+  </div>
+
+  <nav style="height: 200px; font-size: x-large" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="pics/logo.png" class="logo-main" alt="" width="200px"
+          height="150px" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbars-rs-food"
+        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbars-rs-food">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item health-nav login-nav">
+            <a class="nav-link active bg-warning" href="health.html">Health</a>
+          </li>
+          <li class="nav-item sports-nav">
+            <a class="nav-link" href="sports.html">Sports</a>
+          </li>
+          <li class="nav-item meditation-nav">
+            <a class="nav-link" href="med.html">Meditation</a>
+          </li>
+          <li class="nav-item about-nav">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Extra
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item login-nav" href="stats.html">Statistics</a>
+              </li>
+              <li><a class="dropdown-item" href="games.html">Games</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item login-nav" href="fb.html">Feedback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex logout-form">
+          <button class="btn btn-outline-success" id="logout-btn" type="submit">
+            Logout
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--Nav bar-->
+
+  <div class="all-page-title page-health">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 style="font-size: 50px; font-family: 'Mate SC', serif">
+            HEALTH
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br /><br />
+  <!--End of title health-->
+
+  <div style="
+        background-image: url('pics/h1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      ">
+    <div class="row">
+      <div class="col-lg-6" style="padding: 100px">
+        <h1 style="color: white; padding-left: 100px">ACTIVITY SCHEDULER</h1>
+        <h3 style="color: white; padding-left: 150px">
+          Let's schedule an activity!
+        </h3>
+        <div class="container h-100 div1">
+          <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-6">
+              <form id="activity-form">
+                <div class="form-floating">
+                  <input type="loc" class="form-control location" id="location" placeholder="name@example.com"
+                    style="background-color: #cdc7be" />
+                  <label for="location">Location</label>
+                </div>
+                <div class="form-floating my-1">
+                  <select name="sport_name" id="act" class="act-type" style="
+                        width: 250px;
+                        height: 50px;
+                        background-color: #cdc7be; ;
+                      ">
+                    <option value="Athletic">Athletic</option>
+                    <option value="Basket Ball">Basket Ball</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Football">Football</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Volley Ball">Volley Ball</option>
+                  </select>
+                </div>
+                <div class="form-floating my-1">
+                  <input type="date" class="form-control" id="date-picker" style="background-color: #cdc7be" />
+                  <label for="date-picker">Choose date</label>
+                </div>
+                <div class="form-floating my-1">
+                  <input type="time" class="form-control" id="sttime" style="background-color: #cdc7be" />
+                  <label for="sttime">Start time</label>
+                </div>
+                <div class="form-floating my-1">
+                  <input type="time" class="form-control" id="end-time" style="background-color: #cdc7be" />
+                  <label for="end-time">End time</label>
+                </div>
+                <button class="w-90 btn btn-lg btn-outline-light mt-5 mx-5" type="submit">
+                  Schedule
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h1 style="color: aliceblue; margin-top: 100px">
+          <i class="bi bi-calendar4-week"></i>&nbsp;&nbsp;Your currently
+          Scheduled Activities
+        </h1>
+        <div class="row mt-5 mx-2 append-activity-div">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="
+        background: url('https://wallpapercave.com/wp/wp1828841.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+      ">
+    <br /><br /><br />
+    <h1 style="
+          font-family: matesc;
+          text-align: center;
+          font-size: 45px;
+          color: white;
+          text-shadow: 0 0 3px #fff6f6, 0 0 15px #000000;
+        ">
+      VIDEOS
+    </h1>
+    <br />
+    <div style="padding: 30px 75px">
+      <h3 style="
+            color: #ffffff;
+            text-shadow: 0 0 30px #050505, 0 0 50px #000000;
+          ">
+        1. Quick & Healthy Drinks You Should Master
+      </h3>
+      <iframe width="100%" height="350" src="https://www.youtube.com/embed/UposRQt67Dg" title="YouTube video player"
+        frameborder="0" allowfullscreen></iframe>
+      <!-- <br /> -->
+    </div>
+    <div style="padding: 30px 75px">
+      <h3 style="
+            color: #ffffff;
+            text-shadow: 0 0 30px #050505, 0 0 50px #000000;
+          ">
+        2. Quick & Healthy Evening Snacks For the Week
+      </h3>
+      <iframe width="100%" height="350" src="https://www.youtube.com/embed/110G3GvaZns" title="YouTube video player"
+        frameborder="0" allowfullscreen></iframe>
+      <!-- <br /> -->
+    </div>
+    <div style="padding: 30px 75px">
+      <h3 style="
+            color: #ffffff;
+            text-shadow: 0 0 30px #050505, 0 0 50px #000000;
+          ">
+        3. Health Hacks For Great Skin, Hair, Body and Mind!
+      </h3>
+      <iframe width="100%" height="350" src="https://www.youtube.com/embed/AnVeEgwiSb4" title="YouTube video player"
+        frameborder="0" allowfullscreen></iframe>
+      <!-- <br /> -->
+    </div>
+    <div style="padding: 30px 75px">
+      <h3 style="
+            color: #ffffff;
+            text-shadow: 0 0 30px #050505, 0 0 50px #000000;
+          ">
+        4.How to exercise to keep your immune system healthy!
+      </h3>
+      <iframe width="100%" height="350" src="https://www.youtube.com/embed/1piFN_ioMVI" title="YouTube video player"
+        frameborder="0" allowfullscreen></iframe>
+      <!-- <br /> -->
+    </div>
+    <div style="padding: 30px 75px">
+      <h3 style="
+            color: #ffffff;
+            text-shadow: 0 0 30px #050505, 0 0 50px #000000;
+          ">
+        5. Improve Your Mental Health - Depression, Anxiety, Stress
+      </h3>
+      <iframe width="100%" height="350" src="https://www.youtube.com/embed/ZWVcSwcbDK0" title="YouTube video player"
+        frameborder="0" allowfullscreen></iframe>
+      <br />
+      <br /><br /><br />
+    </div>
+  </div>
+  <!--ENd videos-->
+
+  <!-- Start Footer -->
+  <footer class="footer-area bg-f">
+    <div class="contact-imfo-box">
+      <div class="container" style="background-color: #f0ad4e; color: white; border-radius: 20px">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="overflow-hidden">
+              <h4>
+                <i class="bi bi-telephone-fill" style="font-size: 1.05rem"></i>&nbsp;Phone
+              </h4>
+              <p class="lead" style="color: white">
+                &nbsp;&nbsp;&nbsp;+91 87600 00678
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="overflow-hidden">
+              <h4>
+                <i class="bi bi-envelope-fill" style="font-size: 1.05rem"></i>&nbsp;Email
+              </h4>
+              <p class="lead" style="color: white">
+                &nbsp;&nbsp;&nbsp;&nbsp;ownyourself@gmail.com
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="overflow-hidden">
+              <h4>
+                <i class="bi bi-globe2" style="font-size: 1.05rem"></i>&nbsp;Location
+              </h4>
+              <p class="lead" style="color: white">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jaipur
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-6">
+          <h3>About Us</h3>
+          <p>
+            Own Yourself is a website that offers credible information
+            to help make yourself healthy and wise. It serves as a gateway to
+            reliable information on sports, physical activity, yoga and
+            meditation for consumers.
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h3>Subscribe</h3>
+          <div class="subscribe_form">
+            <form class="subscribe_form">
+              <input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address..." type="email" />
+              <button type="submit" class="submit mt-2" style="
+                    background-color: #f0ad4e;
+                    color: white;
+                    border-radius: 20px;
+                  ">
+                SUBSCRIBE
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h3>Contact information</h3>
+          <p class="lead"><a href="#">+91 87600 00678</a></p>
+          <p class="lead"><a href="#">+91 98008 98008</a></p>
+          <p><a href="#"> ownyourself.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="company-name">
+              All Rights Reserved. &copy; 2022
+              <a href="index.html">Own Yourself</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDX6goN8ygHPzhyuvXQJTg4mh1tjOd9N5s",
+      authDomain: "mindatpeace-afb41.firebaseapp.com",
+      projectId: "mindatpeace-afb41",
+      storageBucket: "mindatpeace-afb41.appspot.com",
+      messagingSenderId: "296042005411",
+      appId: "1:296042005411:web:76990cdb00598e7c029016",
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // ACTIVITY-SCHEDULER
+    const activityForm = document.querySelector("#activity-form");
+    //   Auth state changes
+    auth.onAuthStateChanged((user) => {
+      setupUI(user);
+      db.collection(user.uid)
+        .doc("ActivityScheduler")
+        .collection("Activity")
+        .onSnapshot(
+          (snapshot) => {
+            console.log(snapshot);
+            setupActivities(snapshot.docs);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      if (user) {
+        console.log("User logged in:", user);
+        activityForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          db.collection(user.uid)
+            .doc("ActivityScheduler")
+            .collection("Activity")
+            .add({
+              Location: activityForm["location"].value,
+              StartTime: activityForm["sttime"].value,
+              EndTime: activityForm["end-time"].value,
+              Sport: activityForm["act"].value,
+              date: activityForm["date-picker"].value,
+            })
+            .then(() => {
+              console.log("Activity added");
+            });
+        });
+      } else {
+        console.log("User not logged in, Signed Out");
+      }
+    });
+
+    //   LogOUT
+    const logout = document.querySelector("#logout-btn");
+    logout.addEventListener("click", (e) => {
+      e.preventDefault();
+      auth.signOut();
+      window.location = "index.html";
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <!-- <script src="js/firebase.js"></script> -->
+  <script src="js/index.js"></script>
+  <script src="js/mainGSAP2.js"></script>
+
+  <!-- <script src="js/gsapStyle.js"></script> -->
+</body>
+
+</html>

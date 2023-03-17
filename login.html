@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/pageTrans.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+  <title>Login</title>
+
+  <style>
+    .div1 {
+      width: 800px;
+      height: 100px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body class="text-center h-100"
+  style="background: url('pics/loginCover.jpg'); background-repeat: no-repeat;background-size: cover">
+  <div class="transition-container from-left">
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+  </div>
+
+  <div class="transition-container from-top">
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+    <span class="tile"></span>
+  </div>
+
+  <div class="container h-100 div1">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-15 col-md-8 col-lg-6">
+        <form id="login-form">
+          <img class="" style="border-radius:40%" src="pics/map-logo-signup-login.png" alt="" />
+          <br> <br>
+          <h1 class="h3 mb-3 fw-normal" style="color: aliceblue;">LOGIN</h1>
+
+          <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="login-email" placeholder="name@example.com" />
+            <label for="login-email">Email address</label>
+          </div>
+          <div id="empty-email"></div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="login-password" placeholder="Password" />
+            <label for="login-password">Password</label>
+          </div>
+          <div style="color: red" class="warning-append">
+            <!-- <i class="bi bi-x-circle-fill"></i>
+              <strong
+                >Either password is wrong or Email is not registered.</strong
+              > -->
+          </div>
+          <div class="checkbox mb-3">
+            <label class="mt-1">
+              <input type="checkbox" value="remember-me" /> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">
+            Sign in
+          </button>
+          <p class="mt-5 mb-3 " style="color: aliceblue;">©2022</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDX6goN8ygHPzhyuvXQJTg4mh1tjOd9N5s",
+      authDomain: "mindatpeace-afb41.firebaseapp.com",
+      projectId: "mindatpeace-afb41",
+      storageBucket: "mindatpeace-afb41.appspot.com",
+      messagingSenderId: "296042005411",
+      appId: "1:296042005411:web:76990cdb00598e7c029016",
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    // LOGIN FORM
+    const loginForm = document.querySelector("#login-form");
+    const findDiv = document.querySelector(".warning-append");
+    const emptyEmail = document.querySelector("#empty-email");
+    let timer;
+    loginForm.addEventListener("submit", (e) => {
+      //   alert("Hemloasdasd");
+      e.preventDefault();
+
+      findDiv.innerHTML = ``;
+      emptyEmail.innerHTML = ``;
+      loginForm["login-email"].setAttribute("style", "");
+      loginForm["login-password"].setAttribute("style", "");
+      clearTimeout(timer);
+      // Get user info
+      const email = loginForm["login-email"].value;
+      const password = loginForm["login-password"].value;
+
+      if (email.length == 0) {
+        loginForm["login-email"].setAttribute(
+          "style",
+          "border:3px solid rgb(226, 77, 77);"
+        );
+        emptyEmail.innerHTML = `<small style="color:red">E-mail field can't be empty</small>`;
+      }
+      if (password.length == 0) {
+        loginForm["login-password"].setAttribute(
+          "style",
+          "border:3px solid rgb(226, 77, 77);"
+        );
+        findDiv.innerHTML = `<small style="color:red">Password cannot be empty<small>`;
+      }
+      console.log(email, password);
+      // sign up the user
+      if (email.length > 0 && password.length > 0) {
+        auth
+          .signInWithEmailAndPassword(email, password)
+          .then((cred) => {
+            // console.log(cred.user);
+            // signupForm.reset();
+            window.location = "index.html";
+          })
+          .catch((err) => {
+            console.log(
+              "Either Email is not registered or the Password is wrong!"
+            );
+
+            findDiv.innerHTML = ` <i class="bi bi-x-circle-fill"></i>
+              <strong
+                >  Either password is wrong or e-mail is not registered.</strong
+              >`;
+            loginForm["login-email"].setAttribute(
+              "style",
+              "border:3px solid rgb(226, 77, 77);"
+            );
+            loginForm["login-password"].setAttribute(
+              "style",
+              "border:3px solid rgb(226, 77, 77);"
+            );
+            timer = setTimeout(() => {
+              findDiv.innerHTML = ``;
+              loginForm["login-email"].setAttribute("style", "");
+              loginForm["login-password"].setAttribute("style", "");
+            }, 6000);
+          });
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <!-- <script src="js/firebase.js"></script> -->
+  <script src="js/index.js"></script>
+  <script src="js/mainGSAP.js"></script>
+</body>
+
+</html>
